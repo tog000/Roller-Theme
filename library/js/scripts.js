@@ -29,9 +29,9 @@ func();}}}}
 // as the page loads, call these scripts
 $(document).ready(function() {
 
+	jQuery(".product_showcase").productshowcase();
 	
 	
-	// add all your scripts here
 
  
 }); /* end of as page load scripts */

@@ -21,6 +21,7 @@ class Roller{
 		
 		// Cleanup unnecessary stuff
 		add_action('init', 				array(&$this, 'cleanup'));
+		add_action('wp_enqueue_scripts',array(&$this, 'add_styles_scripts'));
 
 		// launching this stuff after theme setup
 		add_action('after_setup_theme', array(&$this, 'theme_support'));
@@ -128,6 +129,15 @@ class Roller{
 			wp_register_script('jquery', '', '', '', true);                   // It's already in the Header
 		}	
 	}
+
+	function add_styles_scripts(){
+		//Styles
+		wp_enqueue_style("productshowcase", get_template_directory_uri()."/library/css/productshowcase.css");
+
+		//Scripts
+		wp_enqueue_script("productshowcase", get_template_directory_uri()."/library/js/jquery.productshowcase.js");
+	}
+
 		
 	function rss_version() { return ''; }
 	
@@ -149,6 +159,16 @@ class Roller{
 
 	function filter_ptags_on_images($content){
 		return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	}
+
+	// Search Form
+	function search($form) {
+		$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+		<label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
+		<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search the Site..." />
+		<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+		</form>';
+		return $form;
 	}
 
 }

@@ -88,10 +88,11 @@ GRID & LAYOUT STYLES
 /*********************
 LINK STYLES
 *********************/
-
+/*
 a, a:visited { color: #f01d4f; }
 a:hover, a:focus { color: #f05e81; }
 a:active {} /* on click */
+*/
 a:link { -webkit-tap-highlight-color : rgba(0,0,0,0); /* this highlights links on Iphones / iPads */ }
 
 /******************************************************************
@@ -117,9 +118,15 @@ th { vertical-align: middle; border:1px solid #bbb;padding:5px;}
 HEADER SYTLES
 *********************/
 
-header[role=banner] {}
+header[role=banner] {
+	margin:0 auto;background-color:#fff;padding:10px;min-height:100px;max-width:900px;border-radius:0px 0px 10px 10px;
+	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	padding:20px 20px 0px;
+}
 
-	#logo {}
+	#logo {float:left;margin:0px 15px;}
 	
 /*********************
 NAVIGATION STYLES
@@ -150,6 +157,19 @@ nav[role=navigation] {}
 				nav[role=navigation] .menu ul li ul li ul.sub-menu { }
 					nav[role=navigation] .menu ul li ul li:hover ul.sub-menu { }
 
+nav ul li {float:left;margin:4px;}
+
+nav ul li.current_page_item a{background-color:#FAC24A;-webkit-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
+	box-shadow: 0 -5px 2px rgba(0,0,0,0.05) inset, 0 5px 5px rgba(0,0,0,0.05) inset;}
+
+nav ul a{color:black;display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px;border-radius:10px;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: background-color 0.2s linear;
+	transition: background-color 0.2s linear;
+}
+header.fixed ul a{display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px}
+header ul a:hover{background-color:#FAC24A;}
 
 /*********************
 ONE-PAGE SITE STYLES
@@ -329,20 +349,6 @@ a.big-btn:hover{
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 -2px 0 rgba(0, 0, 0, .3) inset, 0 0 10px rgba(255, 255, 255, .3) inset, 0 1px 3px rgba(0, 0, 0, .2);
 }
 
-.product_showcase {float:left;position:relative;z-index:9}
-
-.product_showcase #products_list .product {opacity:0.9;cursor:pointer;padding:20px;padding-right:30px;font-weight:bold;border:1px solid #D4D8DA;background: #fbfbfb url("library/images/arrow.png") 95% no-repeat;width:300px;}
-.product_showcase #products_list .product.active {background-color:#f0f0f0}
-.product_showcase #products_list .product.first {border-radius:10px 10px 0px 0px}
-.product_showcase #products_list .product.last {border-radius:0px 0px 10px 10px;}
-
-.product_showcase #products_list h1{font-size:1.2em;text-shadow:none;margin-bottom:0px;padding:0px;color:#222}
-.product_showcase #products_list img{display:none;}
-.product_showcase #products_list p{display:block;font-size:13px;line-height:1em;color:#555;font-weight:200;width:95%;font-style:italic;margin:0px;}
-
-.product_showcase #product_image{border:1px solid red;position:absolute;left:20%;height:100%;width:80%;}
-.product_showcase #product_image{border:1px solid red;position:absolute;left:20%;height:100%;width:80%;}
-
 /******************************************************************
 iPAD & TABLET STYLES 
 These is your iPad styles. They will be visible to anyone who 
@@ -350,7 +356,7 @@ resizes their browser from the smallest size to the next break
 point.
 ******************************************************************/
 @media only screen and (min-width: 480px) {
-	
+
 body {}
 
 
@@ -564,8 +570,10 @@ NAVIGATION STYLES
 nav[role=navigation] {}
 
 	nav[role=navigation] .menu {
-		margin: 1.1em 0; 
+		margin: 0px; 
+		padding-top:30px;
 	}
+	nav ul{padding:0px;margin:0px;}
 	
 	nav[role=navigation] .menu ul {}
 		nav[role=navigation] .menu ul li {}
