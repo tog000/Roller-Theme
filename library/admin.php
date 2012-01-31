@@ -43,6 +43,8 @@ class RollerAdmin{
 
 		// Save posts
 		add_action('save_post', 			array(&$this, 'save_posts'));
+		
+		add_action('edit_page_form', 			array(&$this, 'do_whatever'));
 
 		/*
 		// Let WP know that the theme has a setting on the general settings
@@ -392,7 +394,6 @@ class RollerAdmin{
 
 	function save_posts($post_id){
 		foreach($_REQUEST['roller_post_options'] as $option=>$value){
-			echo $option."-->".$value;
 			if(get_post_meta($post_id, $option, TRUE)==""){
 				add_post_meta($post_id, $option, $value,TRUE);
 			}else{
@@ -401,6 +402,13 @@ class RollerAdmin{
 		}
 		
 	}
+
+	function do_whatever(){
+echo "<h1>I WORK!</h1>";		
+return  "<h1>I WORK!</h1>";
+		
+	}
+
 
 
 }

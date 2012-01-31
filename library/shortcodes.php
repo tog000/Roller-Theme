@@ -91,11 +91,16 @@ class RollerShortcodes{
 	}
 
 	function product_showcase($atts, $content = null){
-		$content = do_shortcode(shortcode_unautop( $content ));
-		return '<div class="product_showcase">'.$content.'</div>';
+		$this->clean_content(&$content);
+
+		return '<div class="product_showcase">
+					<div id="products_list">'.$content.'</div>
+					<div id="product_image"></div>
+				</div>';
 	}
 
 	function product($atts, $content = null, $name=''){
+		$this->clean_content(&$content);
 		
 		if(strpos($name,'_first'))
 			$name = str_replace('_first',' first',$name);
@@ -103,10 +108,17 @@ class RollerShortcodes{
 		if(strpos($name,'_last'))
 			$name = str_replace('_last',' last',$name);
 	
-		$content = do_shortcode(shortcode_unautop( $content ));
 		
 		return '<div class="'.$name.'">'.$content.'</div>';
 	}
+
+	function clean_content($content){
+		$content = do_shortcode(shortcode_unautop( $content ));
+		if(strpos('</p>',$content)==0){
+			$content = substr($content,4);
+		}
+	}
+
 }
 
 ?>
