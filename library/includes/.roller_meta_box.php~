@@ -1,7 +1,0 @@
-Show Title 
-<select name="roller_show_title">
-	<option value="1">Yes</option>
-	<option value="0" <?php if($show_title=="0")echo "selected='selected'"; ?>>No</option>
-</select>
-<div class="">Blah</div>
-<div id="color-picker" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div> 
