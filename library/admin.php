@@ -44,8 +44,6 @@ class RollerAdmin{
 		// Save posts
 		add_action('save_post', 			array(&$this, 'save_posts'));
 		
-		add_action('edit_page_form', 			array(&$this, 'do_whatever'));
-
 		/*
 		// Let WP know that the theme has a setting on the general settings
 		add_action('admin_menu', 			array(&$this, 'register_settings'));
@@ -326,7 +324,7 @@ class RollerAdmin{
 				</p>
 			</form>
 		</div>
-		<?
+		<?php
 
 	}
 

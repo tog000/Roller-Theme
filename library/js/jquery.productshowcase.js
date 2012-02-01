@@ -14,20 +14,21 @@
 			
 			var listElement = $(this);
 			
-			jQuery(parent).find(".product").each(function(i,product){
+			jQuery(parent).find(defaults.product_selector).each(function(i,product){
 				jQuery(product).bind('click',function(event){
-					jQuery(parent).find(".product").removeClass('active');
+					jQuery(parent).find(defaults.product_selector).removeClass('active');
 					product = jQuery(product);
 					product.addClass('active');
-					product_image = jQuery(parent).find("#product_image")[0];
+					product_image = jQuery(parent).find(defaults.image_selector)[0];
 					jQuery(product_image).fadeOut(function(){
 						jQuery(this).css("background-image","url(\""+product.find("img").attr("src")+"\")").fadeIn();
 					})
 				})
 			});
 			
-			first_product = jQuery(parent).find(".product")[0];
-			product_image = jQuery(parent).find("#product_image")[0];
+			first_product = jQuery(parent).find(defaults.product_selector)[0];
+			jQuery(first_product).addClass('active');
+			product_image = jQuery(parent).find(defaults.image_selector)[0];
 			jQuery(product_image).css("background-image","url(\""+jQuery(first_product).find("img").attr("src")+"\")").fadeIn();
 			
         });

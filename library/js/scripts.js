@@ -26,9 +26,84 @@ var src=img.src;img.style.width=img.offsetWidth+"px";img.style.height=img.offset
 img.oldSrc=src;img.src=c.Config.spacer;},resize:function(func){var oldonresize=window.onresize;if(typeof window.onresize!='function'){window.onresize=func;}else{window.onresize=function(){if(oldonresize){oldonresize();}
 func();}}}}
 
+$.fn.extend({
+	fixedNav: function( options ) {
+			var $self 			= $(this),
+				self  			= this,
+				$window 		= options.$window
+				
+			if(document.width<700)
+				return;
+				
+			var defaults = {
+				offset: 200,
+				header_selector: '#fixed_header',
+			};
+			if (options) {
+				$.extend(defaults, options);
+			}
+			
+			header = $(defaults.header_selector);
+			
+			if ( $window.scrollTop() >= defaults.offset) {
+				if(!header.find("header").hasClass('fixed')){
+					header.hide()
+					header.find("header").addClass("fixed")
+					header.css("position","fixed");
+					header.css("top",-80)
+					header.show()
+					
+					header.animate({'top':0})
+				}
+			}else{
+				if(header.find("header").hasClass('fixed')){
+					header.hide()
+					header.find("header").removeClass("fixed")
+					header.css("position","relative");
+					header.fadeIn()
+				}
+			}
+		},
+		goToSection: function( options ) {
+			var $self 			= $(this),
+				self			= this,
+				hash  			= $self.attr('href'),
+				scrollDistance 	= 0,
+				offset			= 120;
+			
+			console.log("asdf"+hash)
+			if(hash == ""){
+				hash = window.location.url
+				console.log(hash)
+			}
+			
+			hash = hash.replace('#','');
+			
+			if ( hash.toLowerCase() == 'products' ) {
+				offset = 110;
+			}
+			
+			if ( hash.toLowerCase() != 'home' ) {
+				scrollDistance = $('#'+hash).offset().top - ( $('#nav li a').outerHeight(true) + offset );
+			}
+			
+			$('html,body').animate({
+				'scrollTop': scrollDistance
+			}, 700);
+		}
+	
+})
+
 // as the page loads, call these scripts
 $(document).ready(function() {
 
+	
+	$(window).bind('scroll', function() {
+		$('#header').fixedNav({ $window: $(this) });
+	});
+	
+	
+	
 	jQuery(".product_showcase").productshowcase();
 	
 	

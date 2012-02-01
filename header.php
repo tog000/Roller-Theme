@@ -72,28 +72,33 @@
 	
 	<body <?php body_class(); ?>>
 	
-		<div id="container">
+		
 			
-			<header role="banner">
+			<!-- Allow the header to be fixed -->
+			<div id="fixed_header">
 			
-				<div id="inner-header" class="clearfix">
+				<header role="banner">
 				
-					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
-					<div id="logo">
-						<img src="<?php echo get_template_directory_uri(); ?>/library/images/logo.png"/>
-						<!--<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>-->
-					</div>
+					<div id="inner-header" class="clearfix">
 					
-					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
-					
-					<nav role="navigation">
-						<?php roller_main_nav(); // Adjust using Menus in Wordpress Admin ?>
-						<div style="clear:both"></div>
-					</nav>
+						<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
+						<div id="logo">
+							&nbsp;
+							<!--<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>-->
+						</div>
+						
+						<!-- if you'd like to use the site description you can un-comment it below -->
+						<?php // bloginfo('description'); ?>
+						
+						<nav role="navigation">
+							<?php roller_main_nav(); // Adjust using Menus in Wordpress Admin ?>
+							<div style="clear:both"></div>
+						</nav>
 
-					<?php dynamic_sidebar("Header Area"); ?>
+						<?php dynamic_sidebar("Header Area"); ?>
+					
+					</div> <!-- end #inner-header -->
 				
-				</div> <!-- end #inner-header -->
-			
-			</header> <!-- end header -->
+				</header> <!-- end header -->
+			</div>
+<div id="container">

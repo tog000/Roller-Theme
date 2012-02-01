@@ -128,7 +128,7 @@ header[role=banner] {
 
 #logo {margin:0px 15px;text-align:center;}
 
-header .widget{margin:10px 20px;}
+header .widget{margin:10px 20px;text-align:center}
 
 /*********************
 NAVIGATION STYLES
@@ -164,7 +164,7 @@ nav ul li.current_page_item a{background-color:#FAC24A;-webkit-box-shadow: 0 -5p
 	-moz-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
 	box-shadow: 0 -5px 2px rgba(0,0,0,0.05) inset, 0 5px 5px rgba(0,0,0,0.05) inset;}
 
-nav  ul a{color:black;display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px;border-radius:10px;
+nav  ul a{text-align:center;color:black;display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px;border-radius:10px;
 	-webkit-transition: background-color 0.2s linear;
 	-moz-transition: background-color 0.2s linear;
 	transition: background-color 0.2s linear;
@@ -483,7 +483,7 @@ a decent size for desktop users.
 ******************************************************************/
 @media only screen and (min-width: 768px) {
 
-body {}
+body {margin:0px;}
 
 /******************************************************************
 WORDPRESS BODY CLASSES
@@ -564,12 +564,40 @@ want to style a page via body class? go ahead
 /*********************
 HEADER SYTLES
 *********************/
+#fixed_header {
+	/* position */
+	top: 0px;
+	height:0px;
+	z-index: 10;
+	width: 100%;
+	margin-bottom:150px;
+}
+header[role=banner] {padding-bottom:0px;margin:0 auto;min-height:100px;display:block;
+	background-image: linear-gradient(bottom, rgb(240,240,240) 0%, rgb(255,255,255) 59%, rgb(255,255,255) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(240,240,240) 0%, rgb(255,255,255) 59%, rgb(255,255,255) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(240,240,240) 0%, rgb(255,255,255) 59%, rgb(255,255,255) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(240,240,240) 0%, rgb(255,255,255) 59%, rgb(255,255,255) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(240,240,240) 0%, rgb(255,255,255) 59%, rgb(255,255,255) 80%);
 
-header[role=banner] {}
-	#logo {float:left;}
-	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(240,240,240)),
+		color-stop(0.59, rgb(255,255,255)),
+		color-stop(0.8, rgb(255,255,255))
+	);	
 
-header .widget{margin:45px 10px 0px;padding:0px;float:left;}
+}
+
+header.fixed {min-height:40px;}
+
+#logo {float:left;background:url("library/images/logo.png") no-repeat;width:175px;height:75px;}
+header.fixed #logo {float:left;width:175px;height:40px;}
+
+header .widget{margin:50px 40px 30px;padding:0px;float:right;}
+header.fixed .widget{margin:15px 40px 0px;padding:0px;float:right;}
+
 
 .search_input{border:1px solid #eee;width:100px;}
 
@@ -577,7 +605,8 @@ header .widget{margin:45px 10px 0px;padding:0px;float:left;}
 NAVIGATION STYLES
 *********************/
 
-nav[role=navigation] {width:60%;float:left;margin-top:30px;}
+nav[role=navigation] {float:left;width:auto;margin-top:35px;padding-left:20px;text-align:center;}
+header.fixed nav[role=navigation] {float:left;width:auto;margin-top:0px;padding-left:20px;text-align:center;}
 
 	nav[role=navigation] .menu {
 		margin: 0px; 
@@ -605,7 +634,7 @@ nav ul li {float:left;}
 ONE-PAGE SITE STYLES
 *********************/
 
-.section{position:relative;margin:0px auto;margin-top:100px;background-color:#fff;padding:20px;min-height:100px;max-width:900px;border-radius:10px;
+.section{position:relative;margin:0px auto;margin-top:40px;background-color:#fff;padding:20px;min-height:100px;max-width:900px;border-radius:10px;
 	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	box-shadow: 0 5px 10px rgba(0,0,0,0.15);

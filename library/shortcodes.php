@@ -17,10 +17,11 @@ class RollerShortcodes{
 		add_shortcode('three_fourth_last',
 										array(&$this, 'et_columns'));
 
-		add_filter("mce_buttons", array(&$this, "enable_style_select"));
+		add_filter("mce_buttons", array(&$this, "enable_custom_tinymce_buttons_row_1"));
+		add_filter("mce_buttons_2", array(&$this, "enable_custom_tinymce_buttons_row_2"));
 
 		add_filter('tiny_mce_before_init', 
-										array(&$this, 'add_custom_classes'));
+										array(&$this, 'add_custom_tinymce_options'));
 
 		add_shortcode( 'product_showcase', 
 										array(&$this, 'product_showcase'));
@@ -30,18 +31,33 @@ class RollerShortcodes{
 		add_shortcode( 'product_last',	array(&$this, 'product'));
 	}
 
-	function add_custom_classes($init_array){
+	function enable_custom_tinymce_buttons_row_1($buttons) {
+
+		$buttons[ ] = 'styleselect';
+
+		return $buttons;
+	}
+
+	function enable_custom_tinymce_buttons_row_2($buttons) {
+		
+		array_splice($buttons, 0, 0, "fontsizeselect");
+		return $buttons;
+	}
+
+	function add_custom_tinymce_options($init_array){
 		if(array_key_exists("theme_advanced_styles",$init_array)){
 			$init_array['theme_advanced_styles'] .= roller_get_option("styles");
 		}else{
 			$init_array['theme_advanced_styles'] = roller_get_option("styles");
 		}
-		return $init_array;
-	}
 
-	function enable_style_select($buttons) {
-		$buttons[ ] = 'styleselect';
-		return $buttons;
+		if(array_key_exists("theme_advanced_font_sizes",$init_array)){
+			$init_array['theme_advanced_font_sizes'] .= "10px,12px,14px,16px,24px";
+		}else{
+			$init_array['theme_advanced_font_sizes'] = "10px,12px,14px,16px,24px";
+		}
+
+		return $init_array;
 	}
 
 	function bigbutton($atts,$content = null){
