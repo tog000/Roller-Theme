@@ -28,14 +28,11 @@ func();}}}}
 
 $.fn.extend({
 	fixedNav: function( options ) {
-			var $self 			= $(this),
-				self  			= this,
-				$window 		= options.$window
-				
 			if(document.width<700)
 				return;
 				
-			var defaults = {
+			defaults = {
+				win: null,
 				offset: 200,
 				header_selector: '#fixed_header',
 			};
@@ -45,7 +42,7 @@ $.fn.extend({
 			
 			header = $(defaults.header_selector);
 			
-			if ( $window.scrollTop() >= defaults.offset) {
+			if ( defaults.win.scrollTop() >= defaults.offset) {
 				if(!header.find("header").hasClass('fixed')){
 					header.hide()
 					header.find("header").addClass("fixed")
@@ -69,7 +66,8 @@ $.fn.extend({
 				self			= this,
 				hash  			= $self.attr('href'),
 				scrollDistance 	= 0,
-				offset			= 110;
+				offset			= 110,
+				header_selector	='#dixed_header'
 			
 			if(hash == ""){
 				hash = window.location.url
@@ -77,12 +75,24 @@ $.fn.extend({
 			
 			hash = hash.replace('#','');
 			
-			if ( hash.toLowerCase() == 'products' ) {
-				offset = 110;
+			header = $(defaults.header_selector);
+			
+			/*
+			if(header.hasClass('fixed')){
+				offset = 120;
+			}else{
+				offset = 70;
+			}*/
+			if(jQuery(document.body).scrollTop()==0){
+				offset = 125;
+			}else{
+				offset = 55;
 			}
 			
-			if ( hash.toLowerCase() != 'Inicio' ) {
+			if ( hash != '' ) {
 				scrollDistance = $('#'+hash).offset().top - ( $('nav').outerHeight(true) + offset );
+			}else{
+				
 			}
 			
 			$('html,body').animate({
@@ -97,7 +107,7 @@ $(document).ready(function() {
 
 	
 	$(window).bind('scroll', function() {
-		$('#header').fixedNav({ $window: $(this) });
+		$('#header').fixedNav({ win: $(this) });
 	});
 	
 	$('body').delegate('nav a[href*="#"]:not(.button)', 'click', function(e) {
