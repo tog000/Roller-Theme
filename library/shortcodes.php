@@ -69,7 +69,7 @@ class RollerShortcodes{
 		), $atts ) );
 
 		if($width=="full"){
-			$width = "80%;display:block;";
+			$width = "auto;display:block;";
 		}
 
 		if(strstr($content,"<a")===FALSE){
