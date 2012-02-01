@@ -2,7 +2,9 @@
 
     $.fn.productshowcase = function(options) {
         var defaults = {
-			offset_x: 300
+			offset_x: 300,
+			product_selector: '.product',
+			image_selector: '#product_image'
         };
         if (options) {
 			$.extend(defaults, options);
@@ -23,14 +25,11 @@
 					})
 				})
 			});
-			/*
-			jQuery.find(".product").removeClass('active')
-			li.addClass('active')
-			$("#product_image").fadeOut(function(){
-				$("#product_image").find("img").attr("src",li.find("img").attr("src"));
-				$(this).fadeIn()
-			})
-			*/
+			
+			first_product = jQuery(parent).find(".product")[0];
+			product_image = jQuery(parent).find("#product_image")[0];
+			jQuery(product_image).css("background-image","url(\""+jQuery(first_product).find("img").attr("src")+"\")").fadeIn();
+			
         });
 
     };

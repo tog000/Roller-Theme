@@ -403,12 +403,5 @@ class RollerAdmin{
 		
 	}
 
-	function do_whatever(){
-echo "<h1>I WORK!</h1>";		
-return  "<h1>I WORK!</h1>";
-		
-	}
-
-
 
 }
