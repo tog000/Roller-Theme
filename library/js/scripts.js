@@ -69,12 +69,10 @@ $.fn.extend({
 				self			= this,
 				hash  			= $self.attr('href'),
 				scrollDistance 	= 0,
-				offset			= 120;
+				offset			= 110;
 			
-			console.log("asdf"+hash)
 			if(hash == ""){
 				hash = window.location.url
-				console.log(hash)
 			}
 			
 			hash = hash.replace('#','');
@@ -83,8 +81,8 @@ $.fn.extend({
 				offset = 110;
 			}
 			
-			if ( hash.toLowerCase() != 'home' ) {
-				scrollDistance = $('#'+hash).offset().top - ( $('#nav li a').outerHeight(true) + offset );
+			if ( hash.toLowerCase() != 'Inicio' ) {
+				scrollDistance = $('#'+hash).offset().top - ( $('nav').outerHeight(true) + offset );
 			}
 			
 			$('html,body').animate({
@@ -102,7 +100,10 @@ $(document).ready(function() {
 		$('#header').fixedNav({ $window: $(this) });
 	});
 	
-	
+	$('body').delegate('nav a[href*="#"]:not(.button)', 'click', function(e) {
+		e.preventDefault();
+		$(this).goToSection();
+	});
 	
 	jQuery(".product_showcase").productshowcase();
 	

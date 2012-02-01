@@ -173,13 +173,13 @@ function roller_main_nav() {
 	$pages_array = explode(",",$pages_list);
 	
 	echo '<ul>';
-	echo '<li class="page_item"><a href="#">Inicio</a></li>';
+	echo '<li class="page_item"><a href="#Inicio">Inicio</a></li>';
 
 	foreach($pages_array as $page){
 		$page = get_page($page);
 
 		if(get_post_meta($page->ID, "roller_show_title",TRUE)!="0"){
-			echo '<li class="page_item"><a href="#">';
+			echo '<li class="page_item"><a href="#'.$page->post_title.'"">';
 			echo $page->post_title;//<li class="current_page_item">
 			echo '</a></li>';
 		}

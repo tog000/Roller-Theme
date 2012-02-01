@@ -20,9 +20,10 @@ foreach($pages_array as $page){
 	}
 
 	$inner_shadow = get_post_meta($page->ID, "roller_inner_shadow",TRUE)=="1"?"inner_shadow":"";
-	
 
-	echo "<div style=\"background-color:".$bg_color.";".$background_image."\" class=\"section ".$inner_shadow."\">";
+	$title_hash = str_replace(" ","",$page->post_title);
+
+	echo "<div id=\"{$title_hash}\" style=\"background-color:{$bg_color};{$background_image}\" class=\"section {$inner_shadow}\">";
 
 	$show_title = get_post_meta($page->ID, "roller_show_title",TRUE);
 	if($show_title!="0"){

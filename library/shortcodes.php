@@ -129,7 +129,7 @@ class RollerShortcodes{
 	}
 
 	function clean_content($content){
-		$content = do_shortcode(shortcode_unautop( $content ));
+		$content = do_shortcode(shortcode_unautop( trim($content) ));
 		if(strpos('</p>',$content)!==FALSE){
 			$content = substr($content,4);
 		}
