@@ -329,7 +329,7 @@ footer[role=contentinfo] {}
 	
 a.big-btn {
 	display:inline-block;
-	margin: 10px 10px 20px 0px;
+	margin: 10px 0px 20px;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 5px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 -3px 0 rgba(0, 0, 0, .3) inset, 0 0 10px rgba(255, 255, 255, .3) inset, 0 2px 4px rgba(0, 0, 0, .2);
@@ -340,7 +340,7 @@ a.big-btn {
     font-weight: bold;
     text-align: center;
     text-shadow: 0 -1px rgba(0, 0, 0, .2);
-    padding: 11px 11px 14px 0px;
+    padding: 11px 11px 14px;
     -moz-transition: background-color .2s linear 0;
     -webkit-transition: background-color .2s linear 0;
     text-decoration:none;
