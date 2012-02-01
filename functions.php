@@ -26,7 +26,7 @@ require_once('library/shortcodes.php'); 	// shortcode support
 		new RollerShortcodes();
 
 require_once('library/plugins.php');          // plugins & extra functions (optional)
-require_once('library/custom-post-type.php'); // custom post type example
+#require_once('library/custom-post-type.php'); // custom post type example
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
@@ -173,14 +173,14 @@ function roller_main_nav() {
 	$pages_array = explode(",",$pages_list);
 	
 	echo '<ul>';
-	echo '<li class="page_item"><a href="#">Inicio</a></li>';
+	echo '<li class="page_item" id="menu_Inicio"><a href="#">Inicio</a></li>';
 
 	foreach($pages_array as $page){
 		$page = get_page($page);
 		$title_hash = str_replace(" ","",$page->post_title);
 
 		if(get_post_meta($page->ID, "roller_show_title",TRUE)!="0"){
-			echo '<li class="page_item"><a href="#'.$title_hash.'"">';
+			echo '<li class="page_item" id="menu_'.$title_hash.'"><a href="#'.$title_hash.'"">';
 			echo $page->post_title;//<li class="current_page_item">
 			echo '</a></li>';
 		}

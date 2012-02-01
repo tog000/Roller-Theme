@@ -72,8 +72,6 @@
 	
 	<body <?php body_class(); ?>>
 	
-		
-			
 			<!-- Allow the header to be fixed -->
 			<div id="fixed_header">
 			

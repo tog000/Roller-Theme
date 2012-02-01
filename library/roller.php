@@ -28,6 +28,7 @@ class Roller{
 		
 		// adding sidebars and widgetized areas
 		add_action( 'widgets_init', 	array(&$this, 'register_sidebars'));
+		add_action( 'widgets_init',		array(&$this, 'register_menus'));
 
 		// Remove RSS version
 		add_filter('the_generator', 	array(&$this, 'rss_version'));
@@ -86,6 +87,16 @@ class Roller{
 			'before_title' => '<h4 class="widgettitle">',
 			'after_title' => '</h4>',
 		));
+
+		register_sidebar(array(
+			'id' => 'special-footer',
+			'name' => 'Footer Area',
+			'description' => 'The footer area.',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h4 class="widgettitle">',
+			'after_title' => '</h4>',
+		));
 		
 		/* 
 		to add more sidebars or widgetized areas, just copy
@@ -112,6 +123,14 @@ class Roller{
 		
 		*/
 	} 
+
+	function register_menus(){
+		register_nav_menus(
+		array(
+		  'footer_links' => 'Footer Links Menu'
+		)
+	);
+	}
 
 	function cleanup() {
 		// remove header links

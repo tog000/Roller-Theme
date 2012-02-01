@@ -391,11 +391,13 @@ class RollerAdmin{
 		}
 
 	function save_posts($post_id){
-		foreach($_REQUEST['roller_post_options'] as $option=>$value){
-			if(get_post_meta($post_id, $option, TRUE)==""){
-				add_post_meta($post_id, $option, $value,TRUE);
-			}else{
-				update_post_meta($post_id, $option, $value);
+		if(isset($_REQUEST['roller_post_options'])){
+			foreach($_REQUEST['roller_post_options'] as $option=>$value){
+				if(get_post_meta($post_id, $option, TRUE)==""){
+					add_post_meta($post_id, $option, $value,TRUE);
+				}else{
+					update_post_meta($post_id, $option, $value);
+				}
 			}
 		}
 		
