@@ -123,19 +123,20 @@ header[role=banner] {
 	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-	padding:20px 20px 0px;
+	padding:20px 20px 20px;
 }
 
-	#logo {float:left;margin:0px 15px;}
-	
+#logo {margin:0px 15px;text-align:center;}
+
+header .widget{margin:10px 20px;}
+
 /*********************
 NAVIGATION STYLES
 *********************/
 
-nav[role=navigation] {}
+nav[role=navigation] {width:100%;margin:0px 0px;}
 
 	nav[role=navigation] .menu {
-		margin: 1.1em 0; 
 	}
 	
 	nav[role=navigation] .menu ul {}
@@ -157,19 +158,19 @@ nav[role=navigation] {}
 				nav[role=navigation] .menu ul li ul li ul.sub-menu { }
 					nav[role=navigation] .menu ul li ul li:hover ul.sub-menu { }
 
-nav ul li {float:left;margin:4px;}
+nav ul li {margin:4px 0px;list-style:none;}
 
 nav ul li.current_page_item a{background-color:#FAC24A;-webkit-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
 	box-shadow: 0 -5px 2px rgba(0,0,0,0.05) inset, 0 5px 5px rgba(0,0,0,0.05) inset;}
 
-nav ul a{color:black;display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px;border-radius:10px;
+nav  ul a{color:black;display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px;border-radius:10px;
 	-webkit-transition: background-color 0.2s linear;
 	-moz-transition: background-color 0.2s linear;
 	transition: background-color 0.2s linear;
 }
-header.fixed ul a{display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px}
-header ul a:hover{background-color:#FAC24A;}
+nav.fixed ul a{display:block;margin:5px;padding:5px 10px;text-decoration:none;color:#333;font-size:18px}
+nav ul a:hover{background-color:#FAC24A;}
 
 /*********************
 ONE-PAGE SITE STYLES
@@ -180,6 +181,7 @@ ONE-PAGE SITE STYLES
 	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 	overflow:hidden;
+	background-image:none;
 }
 
 .section p{font-weight:200}
@@ -279,6 +281,11 @@ POSTS & CONTENT STYLES
 SIDEBARS & ASIDES
 *********************/
 
+.search_input{border:1px solid #eee;width:70%;max-width:200px;}
+::-webkit-input-placeholder{font-size:12px;padding:3px;}
+.search_input:-moz-placeholder { font-size:12px;padding:3px;}
+.search_button{border:none;width:20px;background:url("library/images/search.png") 0px 3px no-repeat}
+
 #sidebar1 { }
 
 	.widget {}
@@ -373,7 +380,6 @@ body {}
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */		
 	
 .last { margin-right: 0px !important; clear:right; border-right:none;}
-
 
 /*********************
 POSTS & CONTENT STYLES
@@ -560,13 +566,18 @@ HEADER SYTLES
 *********************/
 
 header[role=banner] {}
-	#logo {}	
+	#logo {float:left;}
+	
+
+header .widget{margin:45px 10px 0px;padding:0px;float:left;}
+
+.search_input{border:1px solid #eee;width:100px;}
 
 /*********************
 NAVIGATION STYLES
 *********************/
 
-nav[role=navigation] {}
+nav[role=navigation] {width:60%;float:left;margin-top:30px;}
 
 	nav[role=navigation] .menu {
 		margin: 0px; 
@@ -588,7 +599,33 @@ nav[role=navigation] {}
 				nav[role=navigation] .menu ul li ul li ul.sub-menu { }
 					nav[role=navigation] .menu ul li ul li:hover ul.sub-menu { }
 
+nav ul li {float:left;}
 
+/*********************
+ONE-PAGE SITE STYLES
+*********************/
+
+.section{position:relative;margin:0px auto;margin-top:100px;background-color:#fff;padding:20px;min-height:100px;max-width:900px;border-radius:10px;
+	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	overflow:hidden;
+	background-size:contain;
+}
+
+.section p{font-weight:200}
+
+.section h1,.section h2,.section h3{color:#444;margin:0px;padding:5px 0px;}
+
+.section h1{font-size:32px;text-shadow:0 1px 0px rgba(255, 255, 255, 1), 0 3px 3px rgba(0, 0, 0, 0.3)}
+.section h2{text-shadow:0 1px 0px rgba(255, 255, 255, 1), 0 1px 2px rgba(0, 0, 0, 0.3)}
+.section h3{text-shadow:0 1px 0px rgba(255, 255, 255, 1), 0 1px 2px rgba(0, 0, 0, 0.3)}
+
+.section.inner_shadow{
+	-webkit-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
+	box-shadow: 0 -5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15) inset, 0 5px 10px rgba(0,0,0,0.15);
+}
 
 /******************************************************************
 PAGE NAVI STYLES

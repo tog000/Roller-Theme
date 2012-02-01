@@ -10,4 +10,4 @@
 .product_showcase #products_list img{display:none;}
 .product_showcase #products_list p{display:block;font-size:13px;line-height:1em;color:#555;font-weight:200;width:95%;font-style:italic;margin:0px;}
 
-.product_showcase #product_image{z-index:8;position:absolute;left:20%;height:100%;top:0%;width:80%;background-repeat:no-repeat;background-position:right} 
+.product_showcase #product_image{background-size:contain;z-index:8;position:absolute;left:20%;height:100%;top:0%;width:80%;background-repeat:no-repeat;background-position:right} 

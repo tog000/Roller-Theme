@@ -114,7 +114,7 @@ class RollerShortcodes{
 
 	function clean_content($content){
 		$content = do_shortcode(shortcode_unautop( $content ));
-		if(strpos('</p>',$content)==0){
+		if(strpos('</p>',$content)!==FALSE){
 			$content = substr($content,4);
 		}
 	}

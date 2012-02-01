@@ -164,8 +164,8 @@ class Roller{
 	// Search Form
 	function search($form) {
 		$form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-		<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search" />
-		<input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+		<input class="search_input"  type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Search" />
+		<input class="search_button" type="submit" value=""/>
 		</form>';
 		return $form;
 	}

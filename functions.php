@@ -172,7 +172,7 @@ function roller_main_nav() {
 	$pages_list = roller_get_option("layout");
 	$pages_array = explode(",",$pages_list);
 	
-	echo '<div class="menu"><ul>';
+	echo '<ul>';
 	echo '<li class="page_item"><a href="#">Inicio</a></li>';
 
 	foreach($pages_array as $page){
@@ -184,7 +184,7 @@ function roller_main_nav() {
 			echo '</a></li>';
 		}
 	}
-	echo '</ul><div>';
+	echo '</ul>';
 	/**/
 	/**
 	wp_nav_menu( 
