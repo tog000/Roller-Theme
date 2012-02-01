@@ -90,6 +90,8 @@
 					<nav role="navigation">
 						<?php roller_main_nav(); // Adjust using Menus in Wordpress Admin ?>
 					</nav>
+
+					<?php dynamic_sidebar("Header Area"); ?>
 				
 				</div> <!-- end #inner-header -->
 			

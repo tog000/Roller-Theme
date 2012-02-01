@@ -1,0 +1,13 @@
+.product_showcase {float:left;position:relative;width:100%;}
+
+.product_showcase #products_list{position:relative;z-index:9;}
+.product_showcase #products_list .product {opacity:0.9;cursor:pointer;padding:20px;padding-right:30px;font-weight:bold;border:1px solid #D4D8DA;background: #fbfbfb url("../images/arrow.png") 95% no-repeat;width:300px;}
+.product_showcase #products_list .product.active {background-color:#f0f0f0}
+.product_showcase #products_list .product.first {border-radius:10px 10px 0px 0px}
+.product_showcase #products_list .product.last {border-radius:0px 0px 10px 10px;}
+
+.product_showcase #products_list h1{font-size:1.2em;text-shadow:none;margin-bottom:0px;padding:0px;color:#222}
+.product_showcase #products_list img{display:none;}
+.product_showcase #products_list p{display:block;font-size:13px;line-height:1em;color:#555;font-weight:200;width:95%;font-style:italic;margin:0px;}
+
+.product_showcase #product_image{z-index:8;position:absolute;left:20%;height:100%;top:0%;width:80%;background-repeat:no-repeat;background-position:right} 

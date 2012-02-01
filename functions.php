@@ -168,35 +168,34 @@ function roller_page_navi($before = '', $after = '') {
 
 function roller_main_nav() {
 	// display the wp3 menu if available
+	/**/
+	$pages_list = roller_get_option("layout");
+	$pages_array = explode(",",$pages_list);
+	
+	echo '<div class="menu"><ul>';
+	echo '<li class="page_item"><a href="#">Inicio</a></li>';
 
-	$menu_name = 'The Main Menu';
-	echo "<h1>";
-	print_r(get_nav_menu_locations());
-	echo "</h1>";
-	if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
-		$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+	foreach($pages_array as $page){
+		$page = get_page($page);
 
-		$menu_items = wp_get_nav_menu_items($menu->term_id);
-
-		$menu_list = '<ul id="menu-' . $menu_name . '">';
-
-		foreach ( (array) $menu_items as $key => $menu_item ) {
-			$title = $menu_item->title;
-			$url = $menu_item->url;
-			$menu_list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+		if(get_post_meta($page->ID, "roller_show_title",TRUE)!="0"){
+			echo '<li class="page_item"><a href="#">';
+			echo $page->post_title;//<li class="current_page_item">
+			echo '</a></li>';
 		}
-		$menu_list .= '</ul>';
-    } else {
-		$menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
-    }
-	/*wp_nav_menu( 
+	}
+	echo '</ul><div>';
+	/**/
+	/**
+	wp_nav_menu( 
 		array( 
 			'menu' => 'main_nav',
 			'theme_location' => 'main_nav',
 			'container_class' => 'menu clearfix', 
 			'fallback_cb' => 'roller_main_nav_fallback' 
 		)
-	);*/
+	);
+	/**/
 }
 
 function roller_footer_links() { 
