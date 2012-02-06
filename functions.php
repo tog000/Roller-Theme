@@ -169,8 +169,8 @@ function roller_page_navi($before = '', $after = '') {
 function roller_main_nav() {
 	// display the wp3 menu if available
 	/**/
-	$pages_list = roller_get_option("layout");
-	$pages_array = explode(",",$pages_list);
+	$pages_in_layout = roller_get_option("layout");
+	$pages_array = explode(",",$pages_in_layout);
 	
 	echo '<ul>';
 	echo '<li class="page_item" id="menu_Inicio"><a href="#">Inicio</a></li>';
@@ -180,8 +180,13 @@ function roller_main_nav() {
 		$title_hash = str_replace(" ","",$page->post_title);
 
 		if(get_post_meta($page->ID, "roller_show_title",TRUE)!="0"){
-			echo '<li class="page_item" id="menu_'.$title_hash.'"><a href="#'.$title_hash.'"">';
-			echo $page->post_title;//<li class="current_page_item">
+			echo '<li class="page_item" id="menu_'.$title_hash.'">';
+			if(is_home()){
+				echo '<a href="#'.$title_hash.'"">';
+			}else{
+				echo '<a href="'.site_url().'#'.$title_hash.'"">';
+			}
+			echo $page->post_title;
 			echo '</a></li>';
 		}
 	}
@@ -238,6 +243,16 @@ function roller_wpsearch($form) {
 function roller_get_option($option){
 	$options = get_option( 'roller_theme_options' );
 	return $options[$option];
+}
+
+/*********** IS PAGE IN MAIN LAYOUT? **************/
+
+function roller_is_page_in_layout($id){
+	
+	$pages_list = roller_get_option("layout");
+	$pages_array = explode(",",$pages_list);
+	
+	return array_search($id, $pages_array);
 }
 
 ?>

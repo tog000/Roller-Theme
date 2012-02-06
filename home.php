@@ -1,10 +1,10 @@
 <?php get_header(); ?> 
 <?php
 
-$pages_list = roller_get_option("layout");
+$pages_in_layout = roller_get_option("layout");
+$homepage_array = explode(",",$pages_in_layout);
 
-$pages_array = explode(",",$pages_list);
-foreach($pages_array as $page){
+foreach($homepage_array as $page){
 	$page = get_page($page);
 
 	if($page == null){

@@ -175,8 +175,10 @@ $(document).ready(function() {
 	});
 	
 	$('body').delegate('nav a[href*="#"]:not(.button)', 'click', function(e) {
-		e.preventDefault();
-		$(this).goToSection();
+		if(this.href.chatAt(0)=="#"){
+			e.preventDefault();
+			$(this).goToSection();
+		}
 	});
 	
 	$('body').delegate("a.big-btn", 'click', function(e){
